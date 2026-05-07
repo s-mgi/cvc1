@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="CVC Group — Commercial general contractor delivering retail, hospitality and commercial construction across Canada and the U.S. Trusted partner to EssilorLuxottica, Bath & Body Works, Lush, and more." />
+<title>CVC Group — Retail · Hospitality · Commercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- scroll progress -->
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="CVC Group home">
+      <svg class="logomark" viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- C -->
+        <path d="M 22 8 a 18 18 0 1 0 0 36 a 18 18 0 0 0 12.7 -5.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        <!-- V (gold) -->
+        <path d="M 36 8 L 50 44 L 64 8" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- C reversed -->
+        <path d="M 78 8 a 18 18 0 1 1 0 36 a 18 18 0 0 1 -12.7 -5.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        <!-- GROUP wordmark -->
+        <text x="100" y="32" fill="currentColor" style="font-family:'Manrope',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.36em">GROUP</text>
+      </svg>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#projects">Projects</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Start a Project<span class="arr">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#sectors">Sectors</a>
+    <a href="#projects">Projects</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="mobile-meta">
+    <a href="tel:+19056552412">+1 (905) 655-2412</a>
+    <a href="mailto:info@cvcgrp.com">info@cvcgrp.com</a>
+  </div>
+</div>
+
+<!-- hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/projects/hero-bar.jpg" alt="" />
+    <div class="hero-grad"></div>
+  </div>
+
+  <div class="hero-content">
+    <span class="eyebrow rv" data-rv-delay="0">
+      <span class="eyebrow-line"></span>
+      Established 1989
+    </span>
+    <h1 class="hero-title">
+      <span class="rv" data-rv-delay="120">Building branded</span>
+      <span class="rv" data-rv-delay="220">spaces for the</span>
+      <span class="rv italic" data-rv-delay="320">world's most</span>
+      <span class="rv italic" data-rv-delay="420">trusted retailers.</span>
+    </h1>
+    <p class="hero-sub rv" data-rv-delay="600">
+      A commercial general contractor delivering retail, hospitality<br />
+      and commercial construction across Canada and the U.S.
+    </p>
+    <div class="hero-actions rv" data-rv-delay="720">
+      <a href="#projects" class="btn btn-primary">View Projects<span class="arr">→</span></a>
+      <a href="#contact" class="btn btn-ghost">Start a Project</a>
+    </div>
+  </div>
+
+  <div class="hero-pillars">
+    <span>Retail</span>
+    <span class="dot"></span>
+    <span>Hospitality</span>
+    <span class="dot"></span>
+    <span>Commercial</span>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <span class="hero-scroll-line"></span>
+  </div>
+</section>
+
+<!-- about -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-imgs">
+      <div class="about-img about-img-1 rv">
+        <img src="images/projects/luxe-richmond.jpg" alt="Luxe Richmond Lounge interior, Toronto" />
+      </div>
+      <div class="about-img about-img-2 rv" data-rv-delay="200">
+        <img src="images/projects/lenscrafters.jpg" alt="LensCrafters flagship, Bloor Street East" />
+      </div>
+      <div class="about-stat rv" data-rv-delay="400">
+        <span class="stat-num"><span class="count" data-target="36">0</span></span>
+        <span class="stat-label">Years<br />delivering</span>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <span class="eyebrow rv">
+        <span class="eyebrow-line"></span>
+        Who we are
+      </span>
+      <h2 class="section-title rv" data-rv-delay="120">
+        We build the spaces<br />
+        <em>that brands trust</em><br />
+        to represent them.
+      </h2>
+      <p class="rv" data-rv-delay="240">
+        CVC Group specializes in high-quality retail and commercial construction
+        and renovation projects. From flagship stores and boutique shops to restaurants,
+        cafés and office spaces, we deliver environments that are both functional
+        and brand-driven.
+      </p>
+      <p class="rv" data-rv-delay="320">
+        Every project is approached with precision, tight scheduling, and seamless
+        coordination with trades, consultants, and ownership. We translate plans
+        into spaces that enhance customer experience, optimize operational flow,
+        and strengthen brand identity.
+      </p>
+      <a href="#sectors" class="link-arrow rv" data-rv-delay="420">
+        Our capabilities<span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- sectors -->
+<section class="sectors" id="sectors">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow rv">
+        <span class="eyebrow-line"></span>
+        What we build
+      </span>
+      <h2 class="section-title rv" data-rv-delay="120">
+        Three sectors.<br />
+        <em>One standard.</em>
+      </h2>
+    </div>
+
+    <div class="sector-list">
+      <article class="sector-item rv">
+        <div class="sector-num">01</div>
+        <div class="sector-img">
+          <img src="images/projects/sunglass-hut.jpg" alt="Sunglass Hut retail buildout" />
+        </div>
+        <div class="sector-body">
+          <h3>Retail</h3>
+          <p>Flagship stores, boutique shops, and multi-location rollouts for global brands. Custom millwork, precision lighting, integrated display systems, and storefront upgrades — all delivered on tight 6&ndash;8 week schedules without compromising quality.</p>
+          <ul class="sector-tags">
+            <li>Flagship Builds</li>
+            <li>Multi-Site Rollouts</li>
+            <li>Storefront &amp; Façade</li>
+            <li>Mall Coordination</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sector-item rv">
+        <div class="sector-num">02</div>
+        <div class="sector-img">
+          <img src="images/projects/luxe-richmond-mood.jpg" alt="Luxe Richmond hospitality interior" />
+        </div>
+        <div class="sector-body">
+          <h3>Hospitality</h3>
+          <p>Full-scope restaurant, café and bar construction. Demolition, base-building coordination, commercial kitchen installation, custom millwork, mechanical and electrical upgrades, and final commissioning — built to perform from day one.</p>
+          <ul class="sector-tags">
+            <li>Restaurants</li>
+            <li>Cafés &amp; Bars</li>
+            <li>Commercial Kitchens</li>
+            <li>Lounges &amp; Entertainment</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sector-item rv">
+        <div class="sector-num">03</div>
+        <div class="sector-img">
+          <img src="images/projects/grill-gate.jpg" alt="Commercial interior renovation" />
+        </div>
+        <div class="sector-body">
+          <h3>Commercial</h3>
+          <p>Renovation and tenant fit-out work for office, mixed-use and specialty commercial space. Disciplined scheduling, tight tolerances, and close coordination with property management, trades and inspectors at every stage.</p>
+          <ul class="sector-tags">
+            <li>Office Fit-Outs</li>
+            <li>Tenant Improvements</li>
+            <li>Specialty Builds</li>
+            <li>Multi-Phase Projects</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- stats -->
+<section class="stats">
+  <div class="container">
+    <div class="stat-grid">
+      <div class="stat rv">
+        <div class="stat-value"><span class="count" data-target="36">0</span></div>
+        <div class="stat-label">Years<br />of operation</div>
+      </div>
+      <div class="stat rv" data-rv-delay="120">
+        <div class="stat-value"><span class="count" data-target="200">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Projects<br />delivered</div>
+      </div>
+      <div class="stat rv" data-rv-delay="240">
+        <div class="stat-value"><span class="count" data-target="40">0</span><span class="plus">+</span></div>
+        <div class="stat-label">National<br />brands served</div>
+      </div>
+      <div class="stat rv" data-rv-delay="360">
+        <div class="stat-value"><span class="count" data-target="2">0</span></div>
+        <div class="stat-label">Countries<br />Canada &amp; USA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- projects -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow rv">
+        <span class="eyebrow-line"></span>
+        Selected work
+      </span>
+      <h2 class="section-title rv" data-rv-delay="120">
+        Projects that define<br />
+        <em>our standard.</em>
+      </h2>
+    </div>
+
+    <div class="project-grid">
+      <a href="#" class="project project-1 rv">
+        <div class="project-img">
+          <img src="images/projects/luxe-richmond.jpg" alt="" />
+        </div>
+        <div class="project-meta">
+          <span class="project-tag">Hospitality</span>
+          <h3>Luxe Richmond Lounge</h3>
+          <span class="project-loc">Toronto, ON · 2024</span>
+        </div>
+      </a>
+
+      <a href="#" class="project project-2 rv" data-rv-delay="120">
+        <div class="project-img">
+          <img src="images/projects/lenscrafters.jpg" alt="" />
+        </div>
+        <div class="project-meta">
+          <span class="project-tag">Retail</span>
+          <h3>LensCrafters · Bloor East</h3>
+          <span class="project-loc">Toronto, ON · 2023</span>
+        </div>
+      </a>
+
+      <a href="#" class="project project-3 rv" data-rv-delay="240">
+        <div class="project-img">
+          <img src="images/projects/ramonas-kitchen.jpg" alt="" />
+        </div>
+        <div class="project-meta">
+          <span class="project-tag">Hospitality</span>
+          <h3>Ramona's Kitchen · Hillcrest</h3>
+          <span class="project-loc">Richmond Hill, ON · 2024</span>
+        </div>
+      </a>
+
+      <a href="#" class="project project-4 rv" data-rv-delay="120">
+        <div class="project-img">
+          <img src="images/projects/ray-ban.jpg" alt="" />
+        </div>
+        <div class="project-meta">
+          <span class="project-tag">Retail</span>
+          <h3>Ray-Ban · Royalmount</h3>
+          <span class="project-loc">Montréal, QC · 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="project project-5 rv" data-rv-delay="240">
+        <div class="project-img">
+          <img src="images/projects/duo-patisserie.jpg" alt="" />
+        </div>
+        <div class="project-meta">
+          <span class="project-tag">Hospitality</span>
+          <h3>Duo Patisserie &amp; Café</h3>
+          <span class="project-loc">Richmond Hill, ON · 2025</span>
+        </div>
+      </a>
+
+      <a href="#" class="project project-6 rv" data-rv-delay="360">
+        <div class="project-img">
+          <img src="images/projects/sunglass-hut.jpg" alt="" />
+        </div>
+        <div class="project-meta">
+          <span class="project-tag">Retail</span>
+          <h3>Sunglass Hut · Pine Centre</h3>
+          <span class="project-loc">Prince George, BC · 2024</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="projects-cta rv">
+      <a href="projects.html" class="btn btn-primary">View All Projects<span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- clients / brand wall -->
+<section class="clients" id="clients">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow rv">
+        <span class="eyebrow-line"></span>
+        Trusted by
+      </span>
+      <h2 class="section-title rv" data-rv-delay="120">
+        Brands that demand<br />
+        <em>the highest standard.</em>
+      </h2>
+    </div>
+  </div>
+
+  <div class="brand-marquee">
+    <div class="brand-track">
+      <!-- repeated twice for seamless loop -->
+      <span>EssilorLuxottica</span>
+      <span class="sep">·</span>
+      <span>Ray-Ban</span>
+      <span class="sep">·</span>
+      <span>LensCrafters</span>
+      <span class="sep">·</span>
+      <span>Sunglass Hut</span>
+      <span class="sep">·</span>
+      <span>Bath &amp; Body Works</span>
+      <span class="sep">·</span>
+      <span>Lush</span>
+      <span class="sep">·</span>
+      <span>American Eagle</span>
+      <span class="sep">·</span>
+      <span>La Senza</span>
+      <span class="sep">·</span>
+      <span>Aerie</span>
+      <span class="sep">·</span>
+      <span>Under Armour</span>
+      <span class="sep">·</span>
+      <span>Splitsville</span>
+      <span class="sep">·</span>
+      <span>Rogers</span>
+      <span class="sep">·</span>
+      <span>Fido</span>
+      <span class="sep">·</span>
+      <span>M&amp;M Food Market</span>
+      <span class="sep">·</span>
+      <span>COBS Bread</span>
+      <span class="sep">·</span>
+      <span>Stitch It</span>
+      <span class="sep">·</span>
+      <span>Oscar Wylee</span>
+      <span class="sep">·</span>
+      <!-- duplicate for loop -->
+      <span>EssilorLuxottica</span>
+      <span class="sep">·</span>
+      <span>Ray-Ban</span>
+      <span class="sep">·</span>
+      <span>LensCrafters</span>
+      <span class="sep">·</span>
+      <span>Sunglass Hut</span>
+      <span class="sep">·</span>
+      <span>Bath &amp; Body Works</span>
+      <span class="sep">·</span>
+      <span>Lush</span>
+      <span class="sep">·</span>
+      <span>American Eagle</span>
+      <span class="sep">·</span>
+      <span>La Senza</span>
+      <span class="sep">·</span>
+      <span>Aerie</span>
+      <span class="sep">·</span>
+      <span>Under Armour</span>
+      <span class="sep">·</span>
+      <span>Splitsville</span>
+      <span class="sep">·</span>
+      <span>Rogers</span>
+      <span class="sep">·</span>
+      <span>Fido</span>
+      <span class="sep">·</span>
+      <span>M&amp;M Food Market</span>
+      <span class="sep">·</span>
+      <span>COBS Bread</span>
+      <span class="sep">·</span>
+      <span>Stitch It</span>
+      <span class="sep">·</span>
+      <span>Oscar Wylee</span>
+      <span class="sep">·</span>
+    </div>
+  </div>
+
+  <div class="container clients-numbers">
+    <div class="cn-item rv">
+      <div class="cn-num">9</div>
+      <div class="cn-label">Bath &amp; Body Works locations</div>
+    </div>
+    <div class="cn-item rv" data-rv-delay="120">
+      <div class="cn-num">10</div>
+      <div class="cn-label">Sunglass Hut renovations</div>
+    </div>
+    <div class="cn-item rv" data-rv-delay="240">
+      <div class="cn-num">7</div>
+      <div class="cn-label">LensCrafters flagship builds</div>
+    </div>
+    <div class="cn-item rv" data-rv-delay="360">
+      <div class="cn-num">4</div>
+      <div class="cn-label">COBS Bread bakeries</div>
+    </div>
+  </div>
+</section>
+
+<!-- testimonial -->
+<section class="quote">
+  <div class="container">
+    <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+    <blockquote class="rv">
+      Every project is delivered with precision, transparent communication,
+      <em>and a solutions-oriented mindset</em> &mdash; on schedule,
+      on budget, and to the highest standard.
+    </blockquote>
+    <div class="quote-attr rv" data-rv-delay="200">
+      <span class="quote-line"></span>
+      A standard our clients return to, project after project.
+    </div>
+  </div>
+</section>
+
+<!-- contact CTA -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-text">
+      <span class="eyebrow rv">
+        <span class="eyebrow-line"></span>
+        Get in touch
+      </span>
+      <h2 class="section-title rv" data-rv-delay="120">
+        Have a project<br />
+        <em>in mind?</em>
+      </h2>
+      <p class="rv" data-rv-delay="240">
+        From feasibility review and budgeting through final commissioning,
+        we partner with retailers, developers and commercial property owners
+        across Canada and the U.S.
+      </p>
+
+      <div class="contact-meta">
+        <div class="cm-item rv" data-rv-delay="320">
+          <span class="cm-label">Office</span>
+          <span class="cm-value">38 &mdash; 411 Four Valley Dr<br />Concord, ON  L4K 5Z3</span>
+        </div>
+        <div class="cm-item rv" data-rv-delay="380">
+          <span class="cm-label">Telephone</span>
+          <a class="cm-value" href="tel:+19056552412">+1 (905) 655-2412</a>
+        </div>
+        <div class="cm-item rv" data-rv-delay="440">
+          <span class="cm-label">Email</span>
+          <a class="cm-value" href="mailto:info@cvcgrp.com">info@cvcgrp.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap rv" data-rv-delay="200">
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — we\\'ll be in touch.'); this.reset();">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input type="text" id="f-name" name="name" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" name="phone" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-sector">Sector</label>
+          <select id="f-sector" name="sector">
+            <option>Retail</option>
+            <option>Hospitality</option>
+            <option>Commercial</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Project details</label>
+          <textarea id="f-msg" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          Send Inquiry<span class="arr">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <svg class="logomark logomark-lg" viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 22 8 a 18 18 0 1 0 0 36 a 18 18 0 0 0 12.7 -5.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        <path d="M 36 8 L 50 44 L 64 8" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M 78 8 a 18 18 0 1 1 0 36 a 18 18 0 0 1 -12.7 -5.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        <text x="100" y="32" fill="currentColor" style="font-family:'Manrope',sans-serif;font-weight:300;font-size:18px;letter-spacing:0.36em">GROUP</text>
+      </svg>
+      <p>Retail · Hospitality · Commercial</p>
+      <p class="footer-since">Building branded spaces since 1989.</p>
+    </div>
+
+    <nav class="footer-col">
+      <h4>Site</h4>
+      <a href="#about">About</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#projects">Projects</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="footer-col">
+      <h4>Office</h4>
+      <p>38 &mdash; 411 Four Valley Dr<br />Concord, ON  L4K 5Z3</p>
+      <a href="tel:+19056552412">+1 (905) 655-2412</a>
+      <a href="mailto:info@cvcgrp.com">info@cvcgrp.com</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <span>© 2026 CVC Group. All rights reserved.</span>
+    <span class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
