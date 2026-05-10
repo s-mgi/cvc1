@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CVC Group — We Build Spaces That Bring Life to Brands</title>
+<meta name="description" content="CVC Group specializes in the construction and transformation of hospitality, retail, and commercial environments." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ TOKENS ============ */
+:root {
+  --black:    #0e0f12;
+  --black-2:  #15171b;
+  --black-3:  #1c1e23;
+  --ink:      #20242a;
+  --gold:     #c9a149;
+  --gold-lt:  #d9b665;
+  --gold-dk:  #a88735;
+  --cream:    #f5efe6;
+  --cream-2:  #efe8dc;
+  --paper:    #ffffff;
+  --muted:    #8a8d93;
+  --line:     #e7e1d4;
+  --line-dk:  rgba(255,255,255,0.08);
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container: 1240px;
+  --pad: clamp(20px, 4vw, 56px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+.container { max-width: var(--container); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+
+/* Auto-image pattern: <img class="auto-img"> hides until loaded.
+   Sibling .auto-fallback shows by default; gets hidden once image fires onload. */
+.auto-img { opacity: 0; transition: opacity .4s ease; }
+.auto-img.loaded { opacity: 1; }
+
+/* ============ NAV ============ */
+.nav {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 30;
+  padding: 22px 0;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px;
+}
+.logo {
+  display: flex; flex-direction: column; align-items: center;
+  font-family: var(--serif); color: #fff; line-height: 0.95;
+  position: relative;
+}
+.logo .logo-img { height: 54px; width: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.logo .logo-text { display: flex; flex-direction: column; align-items: center; transition: opacity .2s; }
+.logo.has-img .logo-text { opacity: 0; visibility: hidden; }
+.logo .mark { font-size: 30px; font-weight: 600; letter-spacing: 0.5px; }
+.logo .mark .v { color: var(--gold); font-style: italic; }
+.logo .sub {
+  font-family: var(--sans); font-size: 9px; letter-spacing: 6px;
+  color: var(--gold); margin-top: 2px; font-weight: 500;
+}
+.nav-links {
+  display: flex; gap: 38px; align-items: center;
+  list-style: none;
+}
+.nav-links a {
+  color: #fff; font-size: 12px; letter-spacing: 2px; font-weight: 500;
+  text-transform: uppercase; padding: 6px 0; position: relative;
+  transition: color .25s;
+}
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 2px; background: var(--gold);
+}
+.nav-links a:hover { color: var(--gold-lt); }
+.btn-talk {
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #fff; padding: 11px 22px; font-size: 11px;
+  letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600;
+  transition: all .25s;
+}
+.btn-talk:hover { background: var(--gold); border-color: var(--gold); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  min-height: 760px;
+  color: #fff;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2a1d10 0%, #4a3320 35%, #6b4a28 70%, #2c1d0e 100%);
+}
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity .8s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(14,15,18,.85) 0%, rgba(14,15,18,.55) 38%, rgba(14,15,18,.15) 70%);
+}
+/* slide images — drop into images/hero/ to populate */
+.hero-slide.s1 { background-image: url("images/hero/slide-1.jpg"); }
+.hero-slide.s2 { background-image: url("images/hero/slide-2.jpg"); }
+.hero-slide.s3 { background-image: url("images/hero/slide-3.jpg"); }
+
+.hero-inner { position: relative; width: 100%; padding-top: 110px; padding-bottom: 90px; z-index: 2; }
+.eyebrow {
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.85); font-weight: 500; margin-bottom: 22px;
+}
+.hero h1 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(44px, 6.2vw, 84px);
+  line-height: 1.02; letter-spacing: -0.5px;
+  max-width: 720px; margin-bottom: 26px;
+}
+.hero h1 .gold { color: var(--gold); font-style: italic; font-weight: 500; display: block; }
+.hero p.lede {
+  max-width: 460px; color: rgba(255,255,255,0.8);
+  font-size: 14.5px; line-height: 1.7; margin-bottom: 38px;
+}
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 26px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700;
+  transition: all .25s;
+}
+.btn-gold { background: var(--gold); color: #fff; }
+.btn-gold:hover { background: var(--gold-dk); }
+.btn-dark { background: var(--black-2); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+.btn-dark:hover { background: #000; }
+.btn .arr { font-size: 14px; }
+
+.hero-pager {
+  position: absolute; right: var(--pad); top: 50%;
+  transform: translateY(-50%); z-index: 3;
+  display: flex; flex-direction: column; gap: 14px;
+  font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.45);
+  font-weight: 600;
+}
+.hero-pager .num { padding: 4px 0; cursor: pointer; transition: color .2s; }
+.hero-pager .num.active { color: var(--gold); }
+.hero-pager .num.active::before {
+  content: ""; display: inline-block; width: 22px; height: 1px;
+  background: var(--gold); vertical-align: middle; margin-right: 8px;
+}
+.hero-arrows {
+  position: absolute; right: var(--pad); bottom: 70px; z-index: 3;
+  display: flex; gap: 12px;
+}
+.hero-arrows button {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; transition: all .2s;
+}
+.hero-arrows button:hover { background: rgba(255,255,255,0.08); }
+.hero-arrows .next { background: var(--gold); border-color: var(--gold); }
+.hero-arrows .next:hover { background: var(--gold-dk); border-color: var(--gold-dk); }
+
+/* ============ PILLARS ============ */
+.pillars {
+  background: var(--paper);
+  padding: 70px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+.pillars-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.pillar {
+  text-align: center; padding: 0 30px;
+  position: relative;
+}
+.pillar + .pillar::before {
+  content: ""; position: absolute; left: 0; top: 12%; bottom: 12%;
+  width: 1px; background: var(--line);
+}
+.pillar .icon {
+  width: 56px; height: 56px; margin: 0 auto 18px;
+  color: var(--gold);
+}
+.pillar h3 {
+  font-family: var(--sans); font-weight: 700; font-size: 14px;
+  letter-spacing: 4px; text-transform: uppercase; margin-bottom: 14px;
+  color: var(--ink);
+}
+.pillar p {
+  color: #6b6e75; font-size: 13.5px; line-height: 1.7;
+  max-width: 280px; margin: 0 auto 20px;
+}
+.pillar a.explore {
+  color: var(--gold); font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: gap .2s;
+}
+.pillar a.explore:hover { gap: 14px; }
+
+/* ============ FEATURED PROJECTS ============ */
+.projects {
+  background: var(--black);
+  color: #fff;
+  padding: 80px 0 80px;
+}
+.section-eyebrow {
+  text-align: center; font-size: 10.5px; letter-spacing: 4px;
+  color: var(--gold); text-transform: uppercase; font-weight: 700;
+  margin-bottom: 14px;
+}
+.section-title {
+  text-align: center; font-family: var(--serif); font-weight: 500;
+  font-size: clamp(30px, 3.8vw, 46px); line-height: 1.1;
+  margin-bottom: 50px;
+}
+.projects-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.project-card {
+  position: relative; aspect-ratio: 3/4; overflow: hidden;
+  cursor: pointer;
+}
+.project-card .ph {
+  position: absolute; inset: 0;
+  transition: transform .6s ease;
+}
+.project-card .ph.fallback {
+  /* gradient placeholder, layered behind image */
+}
+.project-card img.ph-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s ease, opacity .4s ease;
+  opacity: 0;
+}
+.project-card img.ph-img.loaded { opacity: 1; }
+.project-card:hover .ph,
+.project-card:hover img.ph-img { transform: scale(1.05); }
+.project-card::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.85) 100%);
+  z-index: 2;
+}
+.project-card .body {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  padding: 22px;
+}
+.project-card .tag {
+  font-size: 9px; letter-spacing: 3px; color: var(--gold);
+  text-transform: uppercase; font-weight: 700; margin-bottom: 12px;
+}
+.project-card h4 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 22px; line-height: 1.15; margin-bottom: 14px;
+}
+.project-card .view {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  font-weight: 700; color: #fff;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.projects-cta {
+  display: flex; justify-content: center; margin-top: 44px;
+}
+.btn-pill {
+  background: #fff; color: var(--black);
+  padding: 14px 28px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 12px;
+  transition: all .25s;
+}
+.btn-pill:hover { background: var(--gold); color: #fff; }
+
+.p1 { background: linear-gradient(135deg, #1f1610 0%, #4a2f18 50%, #2a1c10 100%); }
+.p2 { background: linear-gradient(135deg, #2a2218 0%, #5a4528 50%, #2a2018 100%); }
+.p3 { background: linear-gradient(135deg, #1a1610 0%, #3a2818 50%, #1a1410 100%); }
+.p4 { background: linear-gradient(135deg, #221810 0%, #4a3520 50%, #221610 100%); }
+
+/* ============ PHILOSOPHY ============ */
+.philosophy {
+  background: var(--cream);
+  padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.philosophy .text {
+  padding: 90px var(--pad) 90px max(var(--pad), calc((100vw - var(--container))/2 + var(--pad)));
+  display: flex; flex-direction: column; justify-content: center;
+}
+.philosophy .text .eb {
+  font-size: 11px; letter-spacing: 3.5px; color: var(--gold);
+  text-transform: uppercase; font-weight: 700; margin-bottom: 22px;
+}
+.philosophy h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 3.6vw, 46px); line-height: 1.15;
+  margin-bottom: 22px; color: var(--ink);
+  max-width: 440px;
+}
+.philosophy h2 .gold-it { color: var(--gold); font-style: italic; }
+.philosophy p {
+  color: #5e6166; font-size: 14px; line-height: 1.75;
+  max-width: 420px; margin-bottom: 26px;
+}
+.philosophy a.learn {
+  color: var(--gold); font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 10px;
+  align-self: flex-start;
+}
+.philosophy .img {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.25)),
+    linear-gradient(135deg, #2a1f15 0%, #5a4028 40%, #3a281a 100%);
+  background-size: cover; background-position: center;
+  background-image: url("images/philosophy/interior.jpg"),
+                    linear-gradient(135deg, #2a1f15 0%, #5a4028 40%, #3a281a 100%);
+  min-height: 460px;
+}
+
+/* ============ APPROACH ============ */
+.approach {
+  background: var(--black);
+  color: #fff;
+  padding: 64px 0 60px;
+}
+.approach .section-title { color: #fff; margin-bottom: 44px; }
+.approach .section-eyebrow { color: var(--gold); }
+.steps {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+.step {
+  text-align: center; padding: 0 14px;
+  position: relative;
+}
+.step + .step::before {
+  content: ""; position: absolute; left: 0; top: 18%; bottom: 18%;
+  width: 1px; background: rgba(255,255,255,0.08);
+}
+.step .icon {
+  width: 36px; height: 36px; margin: 0 auto 18px;
+  color: var(--gold);
+}
+.step h5 {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 11px; letter-spacing: 2.2px;
+  text-transform: uppercase; line-height: 1.45;
+}
+
+/* ============ STATS ============ */
+.stats {
+  background: #fff;
+  padding: 70px 0 70px;
+  position: relative; overflow: hidden;
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  position: relative; z-index: 2;
+}
+.stat .num {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(40px, 5vw, 64px); line-height: 1;
+  color: var(--ink); letter-spacing: -1.5px;
+  margin-bottom: 12px;
+}
+.stat .label {
+  font-size: 11px; letter-spacing: 3px; font-weight: 700;
+  text-transform: uppercase; color: var(--ink);
+  margin-bottom: 14px;
+}
+.stat p {
+  font-size: 12.5px; color: #7a7d83; line-height: 1.6;
+  max-width: 200px;
+}
+.stats-sketch {
+  position: absolute; right: 4%; top: 50%;
+  transform: translateY(-50%);
+  width: 320px; opacity: 0.18; pointer-events: none;
+  z-index: 1;
+}
+
+/* ============ BRANDS ============ */
+.brands {
+  background: var(--black-2);
+  padding: 30px 0;
+  border-top: 1px solid var(--line-dk);
+}
+.brands-eb {
+  text-align: center; font-size: 10px; letter-spacing: 3px;
+  color: var(--gold); text-transform: uppercase; font-weight: 700;
+  margin-bottom: 18px;
+}
+.brand-row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 30px;
+  color: rgba(255,255,255,0.78);
+  font-family: var(--serif); font-size: 18px; font-weight: 500;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap; position: relative;
+}
+.brand img.brand-img {
+  max-height: 32px; width: auto; opacity: 0;
+  transition: opacity .3s;
+  filter: brightness(0) invert(1);
+}
+.brand img.brand-img.loaded { opacity: 0.85; position: relative; }
+.brand img.brand-img.loaded ~ .brand-text { display: none; }
+.brand img.brand-img:not(.loaded) { position: absolute; pointer-events: none; }
+.brand-text { display: inline-flex; align-items: center; gap: 6px; }
+.brand-script { font-style: italic; font-size: 22px; font-family: var(--serif); }
+
+/* ============ CTA / CONTACT ============ */
+.cta {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--black);
+  color: #fff;
+}
+.cta .left {
+  padding: 70px var(--pad) 70px max(var(--pad), calc((100vw - var(--container))/2 + var(--pad)));
+  position: relative;
+  background-image:
+    linear-gradient(90deg, var(--black) 30%, rgba(14,15,18,.72) 70%, rgba(14,15,18,.35) 100%),
+    url("images/cta/background.jpg"),
+    linear-gradient(135deg, #2a1d10, #4a3320, #2a1d10);
+  background-size: cover; background-position: center;
+}
+.cta .left .eb {
+  font-size: 11px; letter-spacing: 3.5px; color: var(--gold);
+  text-transform: uppercase; font-weight: 700; margin-bottom: 20px;
+}
+.cta h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(32px, 3.6vw, 44px); line-height: 1.15;
+  margin-bottom: 20px; max-width: 440px;
+}
+.cta .left p {
+  color: rgba(255,255,255,0.72); font-size: 14px; line-height: 1.7;
+  max-width: 420px; margin-bottom: 30px;
+}
+.btn-start {
+  background: var(--gold); color: #fff;
+  padding: 14px 24px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 12px;
+  transition: background .25s; align-self: flex-start;
+}
+.btn-start:hover { background: var(--gold-dk); }
+
+.cta .form-wrap {
+  padding: 70px var(--pad) 70px var(--pad);
+  display: flex; align-items: center;
+  background: rgba(0,0,0,0.4);
+}
+.cta-form {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  width: 100%; max-width: 560px;
+}
+.cta-form input, .cta-form select, .cta-form textarea {
+  width: 100%; padding: 14px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff; font-family: var(--sans); font-size: 13px;
+  outline: none; transition: border-color .2s, background .2s;
+}
+.cta-form input:focus, .cta-form select:focus, .cta-form textarea:focus {
+  border-color: var(--gold); background: rgba(255,255,255,0.09);
+}
+.cta-form input::placeholder, .cta-form textarea::placeholder { color: rgba(255,255,255,0.55); }
+.cta-form select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23c9a149' d='M6 8L0 0h12z'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; }
+.cta-form select option { background: var(--black-2); }
+.cta-form textarea { grid-column: 1/-1; min-height: 96px; resize: vertical; font-family: var(--sans); }
+.cta-form .send {
+  grid-column: 1/-1;
+  background: var(--gold); color: #fff;
+  padding: 14px 22px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  justify-self: start;
+  transition: background .25s;
+}
+.cta-form .send:hover { background: var(--gold-dk); }
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--black);
+  color: rgba(255,255,255,0.7);
+  padding: 28px 0;
+  border-top: 1px solid var(--line-dk);
+}
+.foot-grid {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 40px;
+}
+.foot-logo { display: flex; flex-direction: column; align-items: center; position: relative; }
+.foot-logo .logo-img { height: 42px; width: auto; }
+.foot-logo .logo-text { display: flex; flex-direction: column; align-items: center; }
+.foot-logo.has-img .logo-text { display: none; }
+.foot-logo .mark { font-family: var(--serif); font-size: 22px; color: #fff; line-height: 0.95; }
+.foot-logo .mark .v { color: var(--gold); font-style: italic; }
+.foot-logo .sub { font-size: 7.5px; letter-spacing: 4px; color: var(--gold); margin-top: 3px; }
+.foot-tag { font-size: 7.5px; letter-spacing: 3px; color: rgba(255,255,255,0.55); margin-top: 3px; }
+.foot-nav {
+  display: flex; flex-direction: column; gap: 8px; text-align: center;
+}
+.foot-nav .links {
+  display: flex; gap: 26px; justify-content: center; flex-wrap: wrap;
+}
+.foot-nav a {
+  font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.78);
+  text-transform: uppercase; font-weight: 600;
+}
+.foot-nav a:hover { color: var(--gold); }
+.copyright { text-align: center; font-size: 11px; color: rgba(255,255,255,0.45); }
+.foot-info {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 12px; color: rgba(255,255,255,0.7);
+}
+.foot-info .row { display: flex; align-items: center; gap: 10px; }
+.foot-info .ic { color: var(--gold); width: 14px; flex-shrink: 0; }
+.foot-info .row:last-child { margin-top: 6px; }
+.socials { display: flex; gap: 10px; margin-top: 4px; }
+.socials a {
+  width: 26px; height: 26px; border-radius: 4px;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.06); color: #fff;
+  transition: background .2s;
+}
+.socials a:hover { background: var(--gold); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pillar + .pillar::before { display: none; }
+  .pillar { padding: 24px 0; border-top: 1px solid var(--line); }
+  .pillar:first-child { border-top: none; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .philosophy { grid-template-columns: 1fr; }
+  .philosophy .text { padding: 60px var(--pad); }
+  .philosophy .img { min-height: 320px; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 30px 0; }
+  .step + .step::before { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-sketch { display: none; }
+  .cta { grid-template-columns: 1fr; }
+  .cta .left { padding: 50px var(--pad); }
+  .cta .form-wrap { padding: 40px var(--pad); }
+  .cta-form { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .foot-info { align-items: center; }
+  .brand-row { justify-content: center; }
+}
+@media (max-width: 560px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 44px; }
+  .hero-pager, .hero-arrows { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo" id="navLogo" aria-label="CVC Group">
+      <img class="logo-img" src="images/logo/cvc.svg" alt="CVC Group" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none'" />
+      <span class="logo-text">
+        <span class="mark">C<span class="v">V</span>C</span>
+        <span class="sub">GROUP</span>
+      </span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">Who We Are</a></li>
+        <li><a href="#retail">Retail</a></li>
+        <li><a href="#hospitality">Hospitality</a></li>
+        <li><a href="#commercial">Commercial</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn-talk">Let's Talk</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide s1 active"></div>
+    <div class="hero-slide s2"></div>
+    <div class="hero-slide s3"></div>
+  </div>
+  <div class="container hero-inner">
+    <div class="eyebrow">RETAIL &nbsp;|&nbsp; HOSPITALITY &nbsp;|&nbsp; COMMERCIAL</div>
+    <h1>
+      We Build Spaces
+      <span class="gold">That Bring</span>
+      <span class="gold">Life to Brands.</span>
+    </h1>
+    <p class="lede">CVC Group specializes in the construction and transformation of hospitality, retail, and commercial environments — spaces designed to connect people, elevate brands, and create lasting experiences.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-gold">View Our Work <span class="arr">→</span></a>
+      <a href="#services" class="btn btn-dark">Our Services</a>
+    </div>
+  </div>
+
+  <div class="hero-pager" aria-hidden="true">
+    <span class="num active" data-slide="0">01</span>
+    <span class="num" data-slide="1">02</span>
+    <span class="num" data-slide="2">03</span>
+  </div>
+  <div class="hero-arrows">
+    <button aria-label="Previous slide" class="prev">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button aria-label="Next slide" class="next">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="pillars">
+  <div class="container pillars-grid">
+    <div class="pillar">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M16 22h32l-3 28a4 4 0 0 1-4 3.6H23a4 4 0 0 1-4-3.6L16 22z"/>
+        <path d="M24 22v-4a8 8 0 0 1 16 0v4"/>
+      </svg>
+      <h3>Retail</h3>
+      <p>Thoughtfully built retail environments that attract, engage, and keep customers coming back.</p>
+      <a href="#retail" class="explore">Explore Retail <span>→</span></a>
+    </div>
+    <div class="pillar">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M14 38c0-10 8-18 18-18s18 8 18 18"/>
+        <path d="M10 38h44"/>
+        <path d="M32 16v-4"/>
+        <circle cx="32" cy="12" r="1.6" fill="currentColor"/>
+      </svg>
+      <h3>Hospitality</h3>
+      <p>Crafting memorable hospitality spaces that enhance guest experiences and bring hospitality concepts to life.</p>
+      <a href="#hospitality" class="explore">Explore Hospitality <span>→</span></a>
+    </div>
+    <div class="pillar">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="14" y="14" width="16" height="38"/>
+        <rect x="34" y="22" width="16" height="30"/>
+        <path d="M18 20h2M22 20h2M26 20h2M18 26h2M22 26h2M26 26h2M18 32h2M22 32h2M26 32h2M18 38h2M22 38h2M26 38h2M18 44h2M22 44h2M26 44h2"/>
+        <path d="M38 28h2M42 28h2M46 28h2M38 34h2M42 34h2M46 34h2M38 40h2M42 40h2M46 40h2M38 46h2M42 46h2M46 46h2"/>
+      </svg>
+      <h3>Commercial</h3>
+      <p>Functional, future-ready commercial spaces designed to support people, performance, and growth.</p>
+      <a href="#commercial" class="explore">Explore Commercial <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED PROJECTS ============ -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-eyebrow">Featured Projects</div>
+    <h2 class="section-title">Spaces Designed to Be Experienced.</h2>
+    <div class="projects-grid">
+      <a href="#" class="project-card">
+        <div class="ph fallback p1"></div>
+        <img class="ph-img" src="images/projects/luxe-richmond-lounge.jpg" alt="Luxe Richmond Lounge" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <div class="body">
+          <div class="tag">Hospitality</div>
+          <h4>Luxe Richmond Lounge</h4>
+          <span class="view">View Project →</span>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="ph fallback p2"></div>
+        <img class="ph-img" src="images/projects/chillax-and-co.jpg" alt="Chillax & Co." onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <div class="body">
+          <div class="tag">Hospitality</div>
+          <h4>Chillax &amp; Co.</h4>
+          <span class="view">View Project →</span>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="ph fallback p3"></div>
+        <img class="ph-img" src="images/projects/ramonas-kitchen.jpg" alt="Ramona's Kitchen" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <div class="body">
+          <div class="tag">Hospitality</div>
+          <h4>Ramona's Kitchen</h4>
+          <span class="view">View Project →</span>
+        </div>
+      </a>
+      <a href="#" class="project-card">
+        <div class="ph fallback p4"></div>
+        <img class="ph-img" src="images/projects/duo-patisserie-cafe.jpg" alt="Duo Patisserie & Café" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <div class="body">
+          <div class="tag">Hospitality</div>
+          <h4>Duo Patisserie &amp; Café</h4>
+          <span class="view">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="projects-cta">
+      <a href="#" class="btn-pill">View All Projects <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHILOSOPHY ============ -->
+<section class="philosophy" id="about">
+  <div class="text">
+    <div class="eb">Our Philosophy</div>
+    <h2>We create spaces<br>that bring out <span class="gold-it">life.</span></h2>
+    <p>Great spaces do more than look beautiful — they inspire connection, spark emotion, and leave a lasting impression.</p>
+    <a href="#" class="learn">Learn More About Us <span>→</span></a>
+  </div>
+  <div class="img" aria-hidden="true"></div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section class="approach" id="services">
+  <div class="container">
+    <div class="section-eyebrow">Our Approach</div>
+    <h2 class="section-title">Built with Precision. Delivered with Purpose.</h2>
+    <div class="steps">
+      <div class="step">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M6 26l8-12 6 8 6-9"/>
+          <path d="M22 13l4 0 0 4"/>
+          <path d="M4 28h24"/>
+        </svg>
+        <h5>Pre-Construction<br>Planning</h5>
+      </div>
+      <div class="step">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="16" cy="16" r="11"/>
+          <path d="M16 9v14M13 12h5a2.5 2.5 0 0 1 0 5h-5M13 17h6a2.5 2.5 0 0 1 0 5h-6"/>
+        </svg>
+        <h5>Budgeting &amp;<br>Value Engineering</h5>
+      </div>
+      <div class="step">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M9 5h11l5 5v17H9z"/>
+          <path d="M20 5v5h5"/>
+          <path d="M13 14h8M13 18h8M13 22h5"/>
+        </svg>
+        <h5>Permits &amp; Code<br>Coordination</h5>
+      </div>
+      <div class="step">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="11" cy="9" r="3"/>
+          <circle cx="22" cy="9" r="3"/>
+          <path d="M11 12l6 7-6 7"/>
+          <path d="M22 12l-6 7 6 7"/>
+        </svg>
+        <h5>Construction<br>Management</h5>
+      </div>
+      <div class="step">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="5" y="6" width="22" height="20"/>
+          <path d="M5 12h22M5 18h22M11 6v20M21 6v20"/>
+        </svg>
+        <h5>Millwork &amp;<br>Custom Finishes</h5>
+      </div>
+      <div class="step">
+        <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M16 5l3 5h6l-5 5 2 7-6-3-6 3 2-7-5-5h6z"/>
+        </svg>
+        <h5>Final Turnover &amp;<br>Ongoing Support</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="num">22+</div>
+        <div class="label">Years Experience</div>
+        <p>Delivering spaces with expertise built over two decades.</p>
+      </div>
+      <div class="stat">
+        <div class="num">189+</div>
+        <div class="label">Projects Completed</div>
+        <p>Successfully delivering a wide range of retail, hospitality &amp; commercial projects.</p>
+      </div>
+      <div class="stat">
+        <div class="num">265+</div>
+        <div class="label">Skilled Tradespeople</div>
+        <p>Dedicated professionals ensuring exceptional craftsmanship every time.</p>
+      </div>
+      <div class="stat">
+        <div class="num">328+</div>
+        <div class="label">Client Satisfaction</div>
+        <p>Long-term partnerships built on trust, quality and results.</p>
+      </div>
+    </div>
+    <svg class="stats-sketch" viewBox="0 0 320 200" fill="none" stroke="#1c2b42" stroke-width="0.8" stroke-linecap="round">
+      <path d="M40 180 L40 70 L120 30 L200 70 L200 180 Z"/>
+      <path d="M120 30 L120 180"/>
+      <path d="M40 70 L120 110 L200 70"/>
+      <path d="M55 90 L75 90 L75 110 L55 110 Z"/>
+      <path d="M85 90 L105 90 L105 110 L85 110 Z"/>
+      <path d="M135 90 L155 90 L155 110 L135 110 Z"/>
+      <path d="M165 90 L185 90 L185 110 L165 110 Z"/>
+      <path d="M55 130 L75 130 L75 150 L55 150 Z"/>
+      <path d="M85 130 L105 130 L105 150 L85 150 Z"/>
+      <path d="M135 130 L155 130 L155 150 L135 150 Z"/>
+      <path d="M165 130 L185 130 L185 150 L165 150 Z"/>
+      <path d="M200 90 L260 90 L260 180 L200 180"/>
+      <path d="M210 100 L230 100 L230 120 L210 120 Z"/>
+      <path d="M240 100 L255 100 L255 120 L240 120 Z"/>
+      <path d="M210 135 L230 135 L230 155 L210 155 Z"/>
+      <path d="M240 135 L255 135 L255 155 L240 155 Z"/>
+      <path d="M30 180 L280 180"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ BRANDS ============ -->
+<section class="brands">
+  <div class="container">
+    <div class="brands-eb">Proudly Building Spaces for Incredible Brands</div>
+    <div class="brand-row">
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/grill-gate.png" alt="Grill Gate" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4 12c0-3 2-5 4-5l2-2 2 2c2 0 4 2 4 5 0 1-.5 2-1 3l-2-1-2 2-2-2-2 1c-.5-1-1-2-1-3z"/></svg> GRILL GATE</span>
+      </span>
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/ramonas-kitchen.png" alt="Ramona's Kitchen" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text brand-script">Ramona's <span style="font-size:14px;font-style:normal;font-family:var(--sans);letter-spacing:2px;font-weight:500;">KITCHEN</span></span>
+      </span>
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/chillax.png" alt="Chillax & Co." onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text"><span style="font-style:italic;font-family:var(--serif);">Chillax</span><span style="font-size:9px;letter-spacing:3px;font-family:var(--sans);font-weight:600;">&nbsp;&amp; CO.</span></span>
+      </span>
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/duo.png" alt="DUO Patisserie & Café" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text" style="flex-direction:column;align-items:center;gap:0;"><span style="letter-spacing:6px;font-weight:600;">DUO</span><span style="font-size:8px;letter-spacing:3px;font-family:var(--sans);font-weight:500;">PATISSERIE &amp; CAFÉ</span></span>
+      </span>
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/lenscrafters.png" alt="LensCrafters" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid currentColor;margin-right:4px;"></span><span style="font-family:var(--sans);font-weight:700;letter-spacing:0.5px;font-size:14px;">LensCrafters</span><span style="color:var(--gold);">®</span></span>
+      </span>
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/sunglass-hut.png" alt="Sunglass Hut" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text"><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:currentColor;margin-right:6px;"></span><span style="font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:0.5px;">sunglass hut</span></span>
+      </span>
+
+      <span class="brand">
+        <img class="brand-img" src="images/brands/ray-ban.png" alt="Ray-Ban" onload="this.classList.add('loaded')" onerror="this.remove()" />
+        <span class="brand-text brand-script">Ray-Ban</span>
+      </span>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / CONTACT ============ -->
+<section class="cta" id="contact">
+  <div class="left">
+    <div class="eb">Have a Project in Mind?</div>
+    <h2>Let's Build<br>Something Amazing.</h2>
+    <p>Tell us about your vision and our team will help bring it to life.</p>
+    <a href="#" class="btn-start">Start Your Project <span>→</span></a>
+  </div>
+  <div class="form-wrap">
+    <form class="cta-form" onsubmit="event.preventDefault(); alert('Thanks — we will be in touch.');">
+      <input type="text" placeholder="Full Name" required />
+      <input type="tel" placeholder="Phone Number" />
+      <input type="email" placeholder="Email Address*" required />
+      <select required>
+        <option value="">Service Required</option>
+        <option>Retail Build-Out</option>
+        <option>Hospitality Construction</option>
+        <option>Commercial Construction</option>
+        <option>Renovation / Tenant Improvement</option>
+        <option>Other</option>
+      </select>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit" class="send">Send Message <span>→</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container foot-grid">
+    <div class="foot-logo" id="footLogo">
+      <img class="logo-img" src="images/logo/cvc.svg" alt="CVC Group" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none'" />
+      <span class="logo-text">
+        <span class="mark">C<span class="v">V</span>C</span>
+        <span class="sub">GROUP</span>
+        <span class="foot-tag">RETAIL | HOSPITALITY | COMMERCIAL</span>
+      </span>
+    </div>
+    <div class="foot-nav">
+      <div class="links">
+        <a href="#">Home</a>
+        <a href="#about">Who We Are</a>
+        <a href="#retail">Retail</a>
+        <a href="#hospitality">Hospitality</a>
+        <a href="#commercial">Commercial</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="copyright">© 2025 CVC Group. All Rights Reserved.</div>
+    </div>
+    <div class="foot-info">
+      <div class="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg> +1 (905) 655-2412</div>
+      <div class="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg> info@cvcgrp.com</div>
+      <div class="row"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 38 - 411 Four Valley Dr<br>Concord, ON L4K 5Z3</div>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14M8.34 17V10.34H6.67V17h1.67M7.5 9.45a.94.94 0 1 0 0-1.89.94.94 0 0 0 0 1.89M18 17v-3.65c0-1.62-.35-2.86-2.23-2.86-.9 0-1.5.5-1.76.97h-.02v-.82h-1.6V17h1.66v-3.3c0-.87.16-1.7 1.24-1.7 1.06 0 1.07.99 1.07 1.76V17H18z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ============ HERO SLIDESHOW ============ */
+  const slides = document.querySelectorAll('.hero-slide');
+  const nums   = document.querySelectorAll('.hero-pager .num');
+  let current = 0;
+
+  function go(idx) {
+    current = (idx + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    nums.forEach((n, i)   => n.classList.toggle('active', i === current));
+  }
+  nums.forEach((n, i) => n.addEventListener('click', () => go(i)));
+  document.querySelector('.hero-arrows .prev')?.addEventListener('click', () => go(current - 1));
+  document.querySelector('.hero-arrows .next')?.addEventListener('click', () => go(current + 1));
+
+  /* Auto-advance every 7s, pause on hover */
+  let auto = setInterval(() => go(current + 1), 7000);
+  const hero = document.querySelector('.hero');
+  hero?.addEventListener('mouseenter', () => clearInterval(auto));
+  hero?.addEventListener('mouseleave', () => auto = setInterval(() => go(current + 1), 7000));
+</script>
+
+</body>
+</html>
