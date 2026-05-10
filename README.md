@@ -22,7 +22,7 @@ cvc-site/
 
 ## Design system
 
-**Typography:** Manrope only (300–800 weights). No serif fonts. Italic Manrope in gold is used for emphasis (hero accents, "we build *retail and hospitality* spaces" type pull-quotes).
+**Typography:** Manrope only (300–800 weights). No italics. Emphasis is created through color (bronze on key phrases) and weight contrast, not font style — a cleaner, more professional approach than serif italics.
 
 **Colors:**
 - `--black: #0e0f12` (matte black)

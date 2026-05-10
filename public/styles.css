@@ -63,7 +63,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .loader-mark .mk { display: flex; gap: 4px; line-height: 0.95; }
 .loader-mark .mk span { display: inline-block; opacity: 0; transform: translateY(40px); }
-.loader-mark .mk .v { color: var(--gold); font-family: var(--sans); font-style: italic; font-weight: 600; }
+.loader-mark .mk .v { color: var(--gold); font-family: var(--sans); font-weight: 700; }
 .loader-mark .sub {
   font-family: var(--sans); font-size: 10px; letter-spacing: 8px;
   color: var(--gold); margin-top: 6px; font-weight: 500;
@@ -198,7 +198,7 @@ body.kick .nav { opacity: 1; transform: translateY(0); transition-delay: .25s; }
 .logo .logo-text { display: flex; flex-direction: column; align-items: center; transition: opacity .2s; }
 .logo.has-img .logo-text { opacity: 0; visibility: hidden; }
 .logo .mark { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
-.logo .mark .v { color: var(--gold); font-family: var(--sans); font-style: italic; font-weight: 600; }
+.logo .mark .v { color: var(--gold); font-family: var(--sans); font-weight: 700; }
 .logo .sub {
   font-family: var(--sans); font-size: 9px; letter-spacing: 6px;
   color: var(--gold); margin-top: 4px; font-weight: 600;
@@ -272,8 +272,8 @@ body.kick .nav { opacity: 1; transform: translateY(0); transition-delay: .25s; }
   max-width: 760px; margin-bottom: 26px;
 }
 .hero h1 .em {
-  font-family: var(--sans); font-style: italic; font-weight: 600;
-  color: var(--gold); letter-spacing: -0.5px;
+  font-family: var(--sans); font-weight: 700;
+  color: var(--gold); letter-spacing: -1.5px;
 }
 .hero p.lede {
   max-width: 460px; color: rgba(255,255,255,0.8);
@@ -506,7 +506,7 @@ body.kick .nav { opacity: 1; transform: translateY(0); transition-delay: .25s; }
 }
 .philosophy h2 .gold-it {
   font-family: var(--sans); color: var(--gold);
-  font-style: italic; font-weight: 500;
+  font-weight: 700;
 }
 .philosophy p {
   color: #5e6166; font-size: 14px; line-height: 1.75;
@@ -650,7 +650,7 @@ body.kick .nav { opacity: 1; transform: translateY(0); transition-delay: .25s; }
 .brand img.brand-img.loaded ~ .brand-text { display: none; }
 .brand img.brand-img:not(.loaded) { position: absolute; pointer-events: none; }
 .brand-text { display: inline-flex; align-items: center; gap: 6px; }
-.brand-script { font-style: italic; font-size: 19px; font-family: var(--sans); font-weight: 600; letter-spacing: -0.3px; }
+.brand-script { font-size: 19px; font-family: var(--sans); font-weight: 600; letter-spacing: -0.3px; }
 
 /* ============ CTA / CONTACT ============ */
 .cta {
@@ -758,7 +758,7 @@ body.kick .nav { opacity: 1; transform: translateY(0); transition-delay: .25s; }
 .foot-logo .logo-text { display: flex; flex-direction: column; align-items: center; }
 .foot-logo.has-img .logo-text { display: none; }
 .foot-logo .mark { font-family: var(--sans); font-weight: 700; font-size: 22px; color: #fff; line-height: 0.95; letter-spacing: -0.3px; }
-.foot-logo .mark .v { color: var(--gold); font-family: var(--sans); font-style: italic; font-weight: 600; }
+.foot-logo .mark .v { color: var(--gold); font-family: var(--sans); font-weight: 700; }
 .foot-logo .sub { font-size: 7.5px; letter-spacing: 4px; color: var(--gold); margin-top: 3px; }
 .foot-tag { font-size: 7.5px; letter-spacing: 3px; color: rgba(255,255,255,0.55); margin-top: 3px; }
 .foot-nav {
@@ -859,9 +859,8 @@ body.kick .nav { opacity: 1; transform: translateY(0); transition-delay: .25s; }
 .about-heading .gold-it {
   font-family: var(--sans);
   color: var(--gold);
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.3px;
+  font-weight: 700;
+  letter-spacing: -1.2px;
 }
 .exp-row {
   display: grid;
@@ -1064,7 +1063,7 @@ body.kick .inner-hero .bg { transform: scale(1); }
   max-width: 900px;
 }
 .inner-hero h1 .em {
-  font-style: italic; color: var(--gold); font-weight: 600;
+  color: var(--gold); font-weight: 700;
 }
 .inner-hero p.sub {
   margin-top: 20px;
@@ -1091,7 +1090,7 @@ body.kick .inner-hero .bg { transform: scale(1); }
   color: var(--ink); margin-bottom: 24px;
   max-width: 480px;
 }
-.intro h2 .em { font-style: italic; color: var(--gold); font-weight: 600; }
+.intro h2 .em { color: var(--gold); font-weight: 700; }
 .intro p {
   color: #4a4d52; font-size: 15px; line-height: 1.75;
   margin-bottom: 18px;
